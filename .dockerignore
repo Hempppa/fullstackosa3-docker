@@ -1,0 +1,6 @@
+**/.env
+backend/nano_modules/
+**/*.log
+**/logs
+frontend/**/dist/
+
