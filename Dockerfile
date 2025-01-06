@@ -5,7 +5,9 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-RUN --mount=type=secret,id=_env,dst=/etc/secrets/.env cat /etc/secrets/.env | export MONGODB_URI= -
+RUN --mount=type=secret,id=_env,dst=/etc/secrets/.env cat /etc/secrets/.env | MONGODB_URI = -
+
+RUN export MONGODB_URI
 
 EXPOSE 3001
 
