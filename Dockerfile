@@ -5,7 +5,9 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-ENV MONGODB_URI=$(--mount=type=secret,id=_env,dst=/etc/secrets/.env cat /etc/secrets/.env)
+RUN temp=$(--mount=type=secret,id=_env,dst=/etc/secrets/.env cat /etc/secrets/.env)
+
+ENV MONGODB_URI="$temp"
 
 EXPOSE 3001
 
