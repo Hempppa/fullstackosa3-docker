@@ -1,11 +1,11 @@
-# syntax = docker/dockerfile:1.2
+# syntax=docker/dockerfile:1.2
 FROM node:23
 
 WORKDIR /usr/src/app
 
 COPY . .
 
-RUN temp=$(--mount=type=secret,id=_env,dst=/etc/secrets/.env cat /etc/secrets/.env)
+RUN temp=--mount=type=secret,id=_env cat .env
 
 ENV MONGODB_URI="$temp"
 
