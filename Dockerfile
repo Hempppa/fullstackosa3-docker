@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-RUN temp=--mount=type=secret,id=_env cat .env
+RUN temp=$(--mount=type=secret,id=_env cat .env)
 
 ENV MONGODB_URI="$temp"
 
