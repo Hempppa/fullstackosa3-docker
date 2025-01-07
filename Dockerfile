@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-RUN --mount=type=secret,id=_env temp=$(cat .env)
+ARG --mount=type=secret,id=_env temp=$(cat .env)
 
 ENV MONGODB_URI="$temp"
 
