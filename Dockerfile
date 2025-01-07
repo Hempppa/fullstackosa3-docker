@@ -5,10 +5,6 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-ARG --mount=type=secret,id=_env temp=$(cat .env)
-
-ENV MONGODB_URI="$temp"
-
 EXPOSE 3001
 
 RUN cd backend/ && npm install
